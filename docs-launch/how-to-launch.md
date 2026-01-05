@@ -13,3 +13,11 @@ pnpm dev
 # デスクトップアプリとして開く（バックエンドも更新したとき）：
 pnpm tauri dev
 ```
+
+
+## 承認で build scripts 有効化
+
+```shell
+pnpm approve-builds
+# esbuild を approve してください。
+```
