@@ -3,16 +3,26 @@
 VSCode は NAS を認識しない。  
 VSCode を管理者モードで起動すること。  
 
+`vite` は UNCパスを認識しない。  
+したがって、 `\\TAKAHASHI-NAS\Share\以下略` のようなパスを認識しない。  
+`Z:\` のような仮想ドライブのパスにする必要がある。  
+GUI で 仮想ドライブを割り当てていても、 VSCode はそれを認識していない。 VSCode のターミナルでも仮想ドライブを割り当てる。  
+
 仮想ドライブを作る：  
 
 ```shell
-subst Z: "\\TAKAHASHI-NAS\Share\[muzudho-github.com]\muzudho\wara-city-tauri-desktopapp" > cd /d Z:
+subst Z: "\\TAKAHASHI-NAS\Share"
+cd z:\
+
+dir
+
+cd z:\muzudho-github.com\muzudho\wara-city-tauri-desktopapp
 ```
 
 作業終わったら以下で解除：  
 
 ```shell
-subst Z: /d
+subst z:\ /d
 ```
 
 VSCode ターミナルで PowerShell 選択。  
