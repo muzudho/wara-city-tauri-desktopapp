@@ -5,5 +5,6 @@ Type Scrpt/Java Script 等のモジュールをまだインストールしてい
 （パワーシェルではなく）コマンドプロンプトを使う。  
 
 ```shell
+pnpm add -D vite @vitejs/plugin-vue
 pnpm install
 ```
