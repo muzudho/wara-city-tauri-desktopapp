@@ -117,3 +117,28 @@ pnpm install --shamefully-hoist --frozen-lockfile=false
 ```
 
 👆 コケた！  
+
+```shell
+Remove-Item -Recurse -Force node_modules, pnpm-lock.yaml
+pnpm install --shamefully-hoist
+```
+
+```shell
+pnpm add -D @tauri-apps/cli-win32-x64-msvc@2.9.6
+```
+
+📖 [シンボリックファイルが入っている圧縮ファイルが展開できない場合の対処法](https://qiita.com/MetroOsamu/items/2c43618d74bb8eec2c5a)  
+
+
+ルートに `.npmrc` 作成:  
+
+```ini
+shamefully-hoist=true
+node-linker=hoisted
+```
+
+```shell
+pnpm install
+```
+
+成功！  
