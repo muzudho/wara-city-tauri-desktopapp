@@ -5,6 +5,8 @@
 （パワーシェルではなく）コマンドプロンプトを使う。  
 
 ```shell
+pnpm store prune
+
 cd src-tauri
 cargo clean
 ```

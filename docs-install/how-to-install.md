@@ -6,5 +6,6 @@ Type Scrpt/Java Script 等のモジュールをまだインストールしてい
 
 ```shell
 pnpm add -D vite @vitejs/plugin-vue
+pnpm add -D @tauri-apps/cli
 pnpm install
 ```
