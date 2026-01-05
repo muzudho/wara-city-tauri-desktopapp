@@ -15,8 +15,6 @@ subst Z: "\\TAKAHASHI-NAS\Share"
 cd z:\
 
 dir
-
-cd z:\muzudho-github.com\muzudho\wara-city-tauri-desktopapp
 ```
 
 作業終わったら以下で解除：  
@@ -26,10 +24,14 @@ subst z:\ /d
 ```
 
 VSCode ターミナルで PowerShell 選択。  
-（PowerShell は UNCパスをカレントディレクトリーとしてサポート）  
+（PowerShell は UNCパスをカレントディレクトリーとしてサポート。ただし結局、 Vite は　UNCパスをサポートしていない）  
 
 ```shell
-cd "\\TAKAHASHI-NAS\Share\muzudho-github.com\muzudho\wara-city-tauri-desktopapp"
+# 意味無い
+#cd "\\TAKAHASHI-NAS\Share\muzudho-github.com\muzudho\wara-city-tauri-desktopapp"
+
+# こうする
+cd z:\muzudho-github.com\muzudho\wara-city-tauri-desktopapp
 ```
 
 ## PowerShell の Execution Policy の設定
@@ -39,12 +41,11 @@ Get-ExecutionPolicy
     # Restricted
 ```
 
-`Restricted` や `AllSigned` が出たら制限中。  
+`Restricted` や `AllSigned` が出たら制限中。 `RemoteSigned` なら緩和中。  
 
 ```shell
 # 制限緩和
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-# > Y
 
 pnpm install
 ```
@@ -93,7 +94,6 @@ rustup self update
 # 再インストール手順
 rustup toolchain uninstall stable
 rustup toolchain install stable
-
 rustup default stable
 pnpm install
 ```
@@ -112,3 +112,8 @@ rustup update stable
 pnpm install --shamefully-hoist --frozen-lockfile=false
 ```
 
+```log
+ ERR_PNPM_UNKNOWN  UNKNOWN: unknown error, symlink 'Z:\muzudho-github.com\muzudho\wara-city-tauri-desktopapp\node_modules\.pnpm\@tauri-apps+cli-win32-x64-msvc@2.9.6\node_modules\@tauri-apps\cli-win32-x64-msvc' -> 'Z:\muzudho-github.com\muzudho\wara-city-tauri-desktopapp\node_modules\.pnpm\@tauri-apps+cli@2.9.6\node_modules\@tauri-apps\cli-win32-x64-msvc'
+```
+
+👆 コケた！  
