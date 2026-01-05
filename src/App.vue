@@ -126,10 +126,11 @@
         const confFileName = 'start-config.json';
         try {
             // Rust言語（バックグラウンド相当）の関数を呼び出し
+            // NOTE: `invoke` は Webブラウザーでは動作しません。Tauri ウィンドウで起動してください。
             startConfig.value = await invoke('read_bundle_text_file', {'fileName': confFileName});
             //alert(`DEBUG: ファイル読み取り練習中： ${JSON.stringify(startConfig.value, null, "    ")}`);
         } catch (error) {
-            alert(`${confFileName}ファイルを読込めませんでした。エラーが出ましたが、継続します。\n起動時エラー： ${error}`);
+            alert(`${confFileName}ファイルを読込めませんでした。これが invoke が読めないことによるエラーの場合、Webブラウザーではなく Tauri ウィンドウで起動してください。エラーが出ましたが、継続します。\n起動時エラー： ${error}`);
         }
 
         try {           
